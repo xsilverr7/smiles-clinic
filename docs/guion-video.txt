@@ -1,0 +1,11 @@
+Guion sugerido para video de 5 a 10 minutos:
+1. Abrir el link público de Vercel.
+2. Mostrar pantalla de inicio y panel administrativo.
+3. Registrar un paciente nuevo.
+4. Registrar un dentista nuevo.
+5. Agendar una cita seleccionando paciente y dentista.
+6. Editar o reprogramar la cita.
+7. Cambiar estado de Programada a Confirmada o Atendida.
+8. Cancelar una cita.
+9. Mostrar las consultas avanzadas: citas por día, pacientes recientes, citas canceladas, cantidad por dentista y citas por especialidad.
+10. Mostrar brevemente el backend de Render y la base de datos en MongoDB Atlas.
