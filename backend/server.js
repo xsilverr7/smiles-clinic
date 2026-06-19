@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const { MongoMemoryServer } = require('mongodb-memory-server');
 
 const app = express();
 app.use(cors());
@@ -16,14 +15,12 @@ app.use('/api/admin', require('./routes/admin'));
 
 const PORT = process.env.PORT || 3000;
 
-async function start() {
-  const mongo = await MongoMemoryServer.create();
-  await mongoose.connect(mongo.getUri());
-  console.log('MongoDB local temporal conectado');
-  app.listen(PORT, () => console.log('Servidor en puerto ' + PORT));
-}
-
-start().catch(err => {
-  console.error('Error MongoDB:', err.message);
-  process.exit(1);
-});
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log('MongoDB Atlas conectado');
+    app.listen(PORT, () => console.log('Servidor en puerto ' + PORT));
+  })
+  .catch(err => {
+    console.error('Error MongoDB:', err.message);
+    process.exit(1);
+  });
