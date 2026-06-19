@@ -1,5 +1,5 @@
 // Cuando publiques el backend en Render, cambia esta URL:
-const API = 'http://localhost:3000/api';
+const API = "https://smiles-clinic.onrender.com/api";
 let pacientes=[], dentistas=[], citas=[];
 function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');cargarTodo();}
 async function request(url, opts={}){const r=await fetch(API+url,{headers:{'Content-Type':'application/json'},...opts}); if(!r.ok) throw new Error(await r.text()); return r.json();}
